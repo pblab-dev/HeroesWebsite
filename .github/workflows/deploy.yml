@@ -21,5 +21,6 @@ jobs:
             git pull origin main
             npm run install
             npm run build
+            cd build
             cp -a ./ /var/www/html
             echo 'Deployment successful to digital ocean droplet!'

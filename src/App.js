@@ -1,11 +1,12 @@
 import logo from "./assets/logo.png";
-import coin from "./assets/coin.png";
 import "./App.css";
+import ProtectTheWorld from "./sections/ProtectTheWorld";
+import GameInfos from "./sections/GameInfos";
 
 function App() {
   return (
     <div className="App bg_hall">
-      <div className="container">
+      <div className="container-fluid">
         <header className="my-header">
           <div className="row">
             <nav className="navbar navbar-expand-lg navbar-dark">
@@ -93,56 +94,8 @@ function App() {
             </nav>
           </div>
         </header>
-        <section className="hero-invite">
-          <h1 style={{ fontWeight: "bold", fontSize: 77 }} className="neon">
-            PROTECT THE WORLD
-          </h1>
-          <span
-            style={{
-              fontWeight: "bold",
-              fontSize: 22,
-            }}
-            className="span-desc"
-          >
-            Recruit, train and prepare your heroes for the biggest battle in the
-            metaverse!
-          </span>
-          <p style={{ marginTop: 100 }}>
-            <img
-              src={coin}
-              alt="coin"
-              style={{ width: 55 }}
-              className="coin1"
-            />
-            <img
-              src={coin}
-              alt="coin"
-              style={{ width: 55 }}
-              className="coin2"
-            />
-            <img
-              src={coin}
-              alt="coin"
-              style={{ width: 55 }}
-              className="coin3"
-            />
-            <img
-              src={coin}
-              alt="coin"
-              style={{ width: 55 }}
-              className="coin4"
-            />
-            <img
-              src={coin}
-              alt="coin"
-              style={{ width: 99 }}
-              className="coin5"
-            />
-          </p>
-          <p style={{ marginTop: 100 }}>
-            <button class="pixel-borders pixel-box--primary">Play Now!</button>
-          </p>
-        </section>
+        <ProtectTheWorld />
+        <GameInfos />
       </div>
     </div>
   );

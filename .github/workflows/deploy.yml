@@ -1,0 +1,26 @@
+name: Deploy WebSite
+
+on:
+  push:
+    branches: [ main ]
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Game Client
+        uses: appleboy/ssh-action@v0.1.2
+        with:
+          host: ${{secrets.SSH_HOST}}
+          key: ${{secrets.SSH_KEY}}
+          username: ${{secrets.SSH_USERNAME}}
+          passphrase: ${{ secrets.SSH_PASSPHRASE }}
+          
+          script: |
+            cd site
+            git pull origin main
+            npm run install
+            npm run build
+            cd build
+            cp -a ./ /var/www/html
+            echo 'Deployment successful to digital ocean droplet!'

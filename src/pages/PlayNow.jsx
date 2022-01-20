@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { connectWallet } from "../web3";
+import { useEffect } from "react";
 
 const BlackBackground = styled.div`
   background-color: black;
@@ -16,6 +18,10 @@ const BlackBackground = styled.div`
 `;
 
 function PlayNow() {
+  useEffect(async () => {
+    const walletConnected = await connectWallet();
+  }, []);
+
   return (
     <BlackBackground>
       <h1>Play Now</h1>

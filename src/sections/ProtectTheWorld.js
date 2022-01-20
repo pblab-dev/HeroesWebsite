@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import coin from "../assets/coin.png";
 
 const Section = () => {
@@ -25,7 +26,9 @@ const Section = () => {
         <img src={coin} alt="coin" style={{ width: 99 }} className="coin5" />
       </p>
       <p style={{ marginTop: 100 }}>
-        <button class="pixel-borders pixel-box--primary">Play Now!</button>
+        <Link to="play-now" class="pixel-borders pixel-box--primary">
+          Play Now!
+        </Link>
       </p>
     </section>
   );

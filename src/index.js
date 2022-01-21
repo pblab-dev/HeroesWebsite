@@ -10,14 +10,14 @@ import HomePage from "./pages/HomePage";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Layout>
-      <BrowserRouter>
+    <BrowserRouter>
+      <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="play-now" element={<PlayNow />} />
         </Routes>
-      </BrowserRouter>
-    </Layout>
+      </Layout>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
 );

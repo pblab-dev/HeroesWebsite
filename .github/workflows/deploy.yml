@@ -19,7 +19,7 @@ jobs:
           script: |
             cd site
             git pull origin main
-            npm run install
+            npm install
             npm run build
             cd build
             cp -a ./ /var/www/html

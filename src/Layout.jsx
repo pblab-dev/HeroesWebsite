@@ -1,12 +1,13 @@
 import logo from "./assets/logo.png";
 import "./App.css";
-import ProtectTheWorld from "./sections/ProtectTheWorld";
-import GameInfos from "./sections/GameInfos";
 
-function App() {
+function App(props) {
   return (
     <div className="App bg_hall">
-      <div className="container-fluid">
+      <div
+        className="container-fluid"
+        style={{ padding: 0, overflow: "hidden" }}
+      >
         <header className="my-header">
           <div className="row">
             <nav className="navbar navbar-expand-lg navbar-dark">
@@ -94,8 +95,7 @@ function App() {
             </nav>
           </div>
         </header>
-        <ProtectTheWorld />
-        <GameInfos />
+        {props.children}
       </div>
     </div>
   );

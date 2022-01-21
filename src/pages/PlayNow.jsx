@@ -20,14 +20,16 @@ const BlackBackground = styled.div`
 function PlayNow() {
   useEffect(async () => {
     const walletConnected = await connectWallet();
+    console.log(walletConnected);
   }, []);
 
   return (
     <BlackBackground>
-      <h1>Play Now</h1>
+      <iframe src="https://wcheroes.io/game" height={900} width={"100%"} />
+      {/* <h1>Play Now</h1>
       <Link to="/" class="pixel-borders pixel-box--primary">
         Go Back!
-      </Link>
+      </Link> */}
     </BlackBackground>
   );
 }

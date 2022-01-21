@@ -2,18 +2,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
-import App from "./App";
+import Layout from "./Layout";
+
 import reportWebVitals from "./reportWebVitals";
 import PlayNow from "./pages/PlayNow";
+import HomePage from "./pages/HomePage";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="play-now" element={<PlayNow />} />
-      </Routes>
-    </BrowserRouter>
+    <Layout>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="play-now" element={<PlayNow />} />
+        </Routes>
+      </BrowserRouter>
+    </Layout>
   </React.StrictMode>,
   document.getElementById("root")
 );

@@ -1,47 +1,35 @@
 import React from "react";
-import coin from "../assets/coin.png";
 
 const Section = () => {
   return (
-    <section className="headerWall" style={{ marginTop: 300 }}>
+    <section
+      className="headerWall bg-dark"
+      style={{ marginTop: 300 }}
+      id="gameInfo"
+    >
       <p>
         <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
-          Metaverse Battles
+          SECTION CONTENT
         </h1>
       </p>
       <p>
         <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
-          Metaverse Battles
+          SECTION CONTENT
         </h1>
       </p>
       <p>
         <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
-          Metaverse Battles
+          SECTION CONTENT
         </h1>
       </p>
       <p>
         <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
-          Metaverse Battles
+          SECTION CONTENT
         </h1>
       </p>
       <p>
         <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
-          Metaverse Battles
-        </h1>
-      </p>
-      <p>
-        <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
-          Metaverse Battles
-        </h1>
-      </p>
-      <p>
-        <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
-          Metaverse Battles
-        </h1>
-      </p>
-      <p>
-        <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
-          Metaverse Battles
+          SECTION CONTENT
         </h1>
       </p>
       <p>

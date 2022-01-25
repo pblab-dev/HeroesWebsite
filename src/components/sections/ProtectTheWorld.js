@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import coin from "../../assets/coin.png";
 
-const Section = () => {
+const ProtectTheWorld = () => {
   return (
     <section className="hero-invite">
       <h1 style={{ fontWeight: "bold", fontSize: 77 }} className="neon">
@@ -34,4 +34,4 @@ const Section = () => {
   );
 };
 
-export default Section;
+export default ProtectTheWorld;

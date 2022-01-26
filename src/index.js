@@ -7,16 +7,18 @@ import Layout from "./Layout";
 import reportWebVitals from "./reportWebVitals";
 import PlayNow from "./pages/PlayNow";
 import HomePage from "./pages/HomePage";
+import MarketPlace from "./pages/MarketPlace";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Layout>
-        <Routes>
+      <Routes>
+        <Route path="/" element={<Layout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="play-now" element={<PlayNow />} />
-        </Routes>
-      </Layout>
+          <Route path="marketplace" element={<MarketPlace />} />
+        </Route>
+        <Route path="play-now" element={<PlayNow />} />
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

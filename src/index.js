@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { NativeBaseProvider } from "native-base";
 import "./index.css";
 import Layout from "./Layout";
 
@@ -11,15 +12,17 @@ import MarketPlace from "./pages/MarketPlace";
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="marketplace" element={<MarketPlace />} />
-        </Route>
-        <Route path="play-now" element={<PlayNow />} />
-      </Routes>
-    </BrowserRouter>
+    <NativeBaseProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="marketplace" element={<MarketPlace />} />
+          </Route>
+          <Route path="play-now" element={<PlayNow />} />
+        </Routes>
+      </BrowserRouter>
+    </NativeBaseProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

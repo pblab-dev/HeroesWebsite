@@ -153,3 +153,17 @@ body {
 .bg-dark {
   background: #040501;
 }
+.bg-ligth-2 {
+  background: #7c7823;
+}
+
+.videoWrapper {
+  position: relative;
+  padding-bottom: 26.25%; /* 16:9 */
+  height: 0;
+}
+.videoWrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

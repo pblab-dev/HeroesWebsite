@@ -1,11 +1,13 @@
 import ProtectTheWorld from "../components/sections/ProtectTheWorld";
-import GameInfos from "../components/sections/GameInfos";
+import GamePreview from "../components/sections/GamePreview";
+import NftsPreview from "../components/sections/NftsPreview";
 
 function HomePage() {
   return (
     <>
       <ProtectTheWorld />
-      <GameInfos />
+      <GamePreview />
+      <NftsPreview />
     </>
   );
 }

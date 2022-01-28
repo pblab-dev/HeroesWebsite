@@ -25,11 +25,7 @@ const listInfos = [
 
 const GamePreview = () => {
   return (
-    <section
-      className="headerWall bg-dark"
-      style={{ marginTop: 300 }}
-      id="gameInfo"
-    >
+    <section className="headerWall bg-dark" id="gameInfo">
       <p>
         <h1 style={{ fontWeight: "bold", color: "white", fontSize: 77 }}>
           HEROES BATTLES

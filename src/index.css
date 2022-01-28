@@ -152,9 +152,11 @@ body {
 
 .bg-dark {
   background: #040501;
+  padding: 80px 0px;
 }
 .bg-ligth-2 {
   background: #7c7823;
+  padding: 80px 0px;
 }
 
 .videoWrapper {

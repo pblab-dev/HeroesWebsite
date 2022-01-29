@@ -1,5 +1,5 @@
 import React from "react";
-import { VStack, Slider, Checkbox } from "native-base";
+import { VStack, Slider, Checkbox, HStack } from "native-base";
 import styled from "styled-components";
 import Card from "../../components/Card";
 
@@ -13,7 +13,7 @@ function Filter() {
     "Gardening",
   ]);
   return (
-    <Card w="400px">
+    <Card p={10} w="1/4">
       <VStack space={2} alignItems="start">
         <FilterTitle style={{ fontSize: "28px" }}>Filters</FilterTitle>
         <Checkbox.Group

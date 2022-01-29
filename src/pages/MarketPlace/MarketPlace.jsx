@@ -43,7 +43,7 @@ function MarketPlace() {
           </InfoTags>
         </HStack>
       </HStack>
-      <HStack>
+      <HStack flexWrap="wrap">
         <Filter />
         <List />
       </HStack>

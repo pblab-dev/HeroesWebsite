@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NativeBaseProvider } from "native-base";
+import { NativeBaseProvider, extendTheme } from "native-base";
 import "./index.css";
 import Layout from "./Layout";
 
@@ -10,35 +10,46 @@ import PlayNow from "./pages/PlayNow";
 import HomePage from "./pages/HomePage";
 import MarketPlace from "./pages/MarketPlace/MarketPlace";
 
-// const theme = extendTheme({
-//   colors: {
-//     // Add new color
-//     primary: {
-//       50: "#E3F2F9",
-//       100: "#C5E4F3",
-//       200: "#A2D4EC",
-//       300: "#7AC1E4",
-//       400: "#47A9DA",
-//       500: "#0088CC",
-//       600: "#007AB8",
-//       700: "#006BA1",
-//       800: "#005885",
-//       900: "#003F5E",
-//     },
-//     // Redefinig only one shade, rest of the color will remain same.
-//     amber: {
-//       400: "#d97706",
-//     },
-//   },
-//   config: {
-//     // Changing initialColorMode to 'dark'
-//     initialColorMode: "dark",
-//   },
-// });
+const theme = extendTheme({
+  fontConfig: {
+    PixelFont: {
+      100: {
+        normal: "PixelFont",
+        italic: "PixelFont",
+      },
+      200: {
+        normal: "PixelFont",
+        italic: "PixelFont",
+      },
+      300: {
+        normal: "PixelFont",
+        italic: "PixelFont",
+      },
+      400: {
+        normal: "PixelFont",
+        italic: "PixelFont",
+      },
+      500: {
+        normal: "PixelFont",
+      },
+      600: {
+        normal: "PixelFont",
+        italic: "PixelFont",
+      },
+    },
+  },
+
+  // Make sure values below matches any of the keys in `fontConfig`
+  fonts: {
+    heading: "PixelFont",
+    body: "PixelFont",
+    mono: "PixelFont",
+  },
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={theme}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>

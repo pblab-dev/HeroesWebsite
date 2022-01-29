@@ -1,6 +1,7 @@
 import { HStack, VStack } from "native-base";
 import styled from "styled-components";
 import Filter from "./Filter";
+import List from "./List";
 
 const MediumButton = styled.button`
   font-size: 20px;
@@ -42,7 +43,10 @@ function MarketPlace() {
           </InfoTags>
         </HStack>
       </HStack>
-      <Filter />
+      <HStack>
+        <Filter />
+        <List />
+      </HStack>
     </VStack>
   );
 }

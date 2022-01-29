@@ -1,6 +1,11 @@
 import React from "react";
-import { VStack, HStack, Heading, Box, Checkbox, Text } from "native-base";
+import { VStack, Slider, Checkbox } from "native-base";
+import styled from "styled-components";
 import Card from "../../components/Card";
+
+const FilterTitle = styled.div`
+  font-size: 22px;
+`;
 
 function Filter() {
   const [groupValue, setGroupValue] = React.useState([
@@ -8,16 +13,9 @@ function Filter() {
     "Gardening",
   ]);
   return (
-    <Card>
-      <VStack space={2}>
-        <HStack alignItems="baseline">
-          <Heading fontSize="lg">Hobbies</Heading>
-        </HStack>
-        <VStack>
-          <Box>
-            <Text>Selected: ({groupValue.length})</Text>
-          </Box>
-        </VStack>
+    <Card w="400px">
+      <VStack space={2} alignItems="start">
+        <FilterTitle style={{ fontSize: "28px" }}>Filters</FilterTitle>
         <Checkbox.Group
           colorScheme="green"
           defaultValue={groupValue}
@@ -25,20 +23,46 @@ function Filter() {
           onChange={(values) => {
             setGroupValue(values || []);
           }}
+          mb={5}
         >
           <Checkbox value="Photography" my="1">
-            Photography
+            Ordinary
           </Checkbox>
           <Checkbox value="Writing" my="1">
-            Writing
+            Rare
           </Checkbox>
           <Checkbox value="Gardening" my="1">
-            Gardening
-          </Checkbox>
-          <Checkbox value="Cooking" my="1">
-            Cooking
+            Lendary
           </Checkbox>
         </Checkbox.Group>
+        <FilterTitle>Level</FilterTitle>
+        <Slider defaultValue={40} colorScheme="yellow">
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
+        </Slider>
+        <FilterTitle>Strenght</FilterTitle>
+        <Slider defaultValue={20} colorScheme="yellow">
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
+        </Slider>
+        <FilterTitle>Dexterity</FilterTitle>
+        <Slider defaultValue={70} colorScheme="yellow">
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
+        </Slider>
+        <FilterTitle>Vigor</FilterTitle>
+        <Slider defaultValue={70} colorScheme="yellow">
+          <Slider.Track>
+            <Slider.FilledTrack />
+          </Slider.Track>
+          <Slider.Thumb />
+        </Slider>
       </VStack>
     </Card>
   );

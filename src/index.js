@@ -45,6 +45,14 @@ const theme = extendTheme({
     body: "PixelFont",
     mono: "PixelFont",
   },
+  components: {
+    Text: {
+      baseStyle: {
+        color: "white",
+        lineHeight: "1em",
+      },
+    },
+  },
 });
 
 ReactDOM.render(

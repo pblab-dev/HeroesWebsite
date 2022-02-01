@@ -1,9 +1,19 @@
 import { Box } from "native-base";
 
-function Card({ children }) {
+function Card({ children, ...restProps }) {
   return (
-    <Box bg="rgb(112, 115, 25)" borderRadius={3}>
-      {children}
+    <Box {...restProps}>
+      <Box
+        w="100%"
+        bg="rgba(28, 25, 23, 0.2)"
+        borderRadius={5}
+        p={10}
+        pt={5}
+        // borderColor="rgba(28, 25, 23, 0.2)"
+        // borderWidth="4px"
+      >
+        {children}
+      </Box>
     </Box>
   );
 }

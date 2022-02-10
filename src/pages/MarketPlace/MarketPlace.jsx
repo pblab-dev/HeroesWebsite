@@ -2,6 +2,7 @@ import { HStack, VStack } from "native-base";
 import styled from "styled-components";
 import Filter from "./Filter";
 import List from "./List";
+import { Container, Row, Col, Stack } from "react-bootstrap";
 
 const MediumButton = styled.button`
   font-size: 20px;
@@ -21,9 +22,9 @@ const InfoTags = styled.div`
 
 function MarketPlace() {
   return (
-    <VStack>
-      <HStack alignItems="center" justifyContent="space-around">
-        <HStack px="10" py="5" alignItems="center">
+    <Container>
+      <Stack direction="horizontal">
+        <Col className="d-flex justify-content-start">
           <MediumButton
             className="pixel-borders pixel-box--primary"
             style={{ marginRight: "50px" }}
@@ -33,21 +34,22 @@ function MarketPlace() {
           <MediumButton className="pixel-borders pixel-box--primary" disabled>
             Equipment
           </MediumButton>
-        </HStack>
-        <HStack alignItems="center">
+        </Col>
+
+        <Col className="d-flex justify-content-end">
           <InfoTags style={{ marginRight: "10px" }}>
             Floor Price: 2334 <span>BABY</span>
           </InfoTags>
           <InfoTags>
             7234 <span>MILK</span>
           </InfoTags>
-        </HStack>
-      </HStack>
-      <HStack flexWrap="wrap">
+        </Col>
+      </Stack>
+      <Row>
         <Filter />
         <List />
-      </HStack>
-    </VStack>
+      </Row>
+    </Container>
   );
 }
 

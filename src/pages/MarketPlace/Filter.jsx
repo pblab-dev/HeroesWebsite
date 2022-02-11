@@ -13,7 +13,7 @@ function Filter() {
     "Gardening",
   ]);
   return (
-    <Card p={10} w="1/4">
+    <Card p={10} w={{ lg: "1/4", md: "100%" }}>
       <VStack space={2} alignItems="start">
         <FilterTitle style={{ fontSize: "28px" }}>Filters</FilterTitle>
         <Checkbox.Group

@@ -1,7 +1,8 @@
-import { HStack, VStack } from "native-base";
 import styled from "styled-components";
 import Filter from "./Filter";
 import List from "./List";
+import { breakpoints } from "../../styledHelpers";
+import { Container, Row, Col, Stack } from "react-bootstrap";
 
 const MediumButton = styled.button`
   font-size: 20px;
@@ -12,42 +13,82 @@ const MediumButton = styled.button`
 
 const InfoTags = styled.div`
   font-size: 24px;
+  @media (max-width: ${breakpoints.sm}) {
+    font-size: 18px;
+  }
   span {
     font-size: 26px;
     font-weight: bold;
     color: aquamarine;
+    @media (max-width: ${breakpoints.sm}) {
+      font-size: 20px;
+    }
   }
 `;
 
+const RowHeader = styled(Row)`
+  @media (max-width: ${breakpoints.sm}) {
+    flex-direction: column-reverse;
+  }
+`;
+
+const FloorPriceColumn = styled(Col)`
+  @media (max-width: ${breakpoints.sm}) {
+    margin-bottom: 25px;
+  }
+`;
+
+function FloorPriceTag() {
+  return (
+    <>
+      <Col sm={6} className="d-flex align-items-center">
+        <InfoTags style={{ fontSize: "28px" }}>FlOOR PRICE:</InfoTags>
+      </Col>
+      <Stack>
+        <InfoTags>
+          <span>MILK</span>
+        </InfoTags>
+        <InfoTags>7234</InfoTags>
+      </Stack>
+      <Stack>
+        <InfoTags>
+          <span>BABY</span>
+        </InfoTags>
+        <InfoTags>2334</InfoTags>
+      </Stack>
+    </>
+  );
+}
+
 function MarketPlace() {
   return (
-    <VStack>
-      <HStack alignItems="center" justifyContent="space-around">
-        <HStack px="10" py="5" alignItems="center">
+    <Container>
+      <RowHeader>
+        <Col className=" d-flex justify-content-start" sm={13} xs={13} md={6}>
           <MediumButton
             className="pixel-borders pixel-box--primary"
             style={{ marginRight: "50px" }}
           >
             Heroes
           </MediumButton>
-          <MediumButton className="pixel-borders pixel-box--primary" disabled>
+          <MediumButton className="pixel-borders pixel-box--primary " disabled>
             Equipment
           </MediumButton>
-        </HStack>
-        <HStack alignItems="center">
-          <InfoTags style={{ marginRight: "10px" }}>
-            Floor Price: 2334 <span>BABY</span>
-          </InfoTags>
-          <InfoTags>
-            7234 <span>MILK</span>
-          </InfoTags>
-        </HStack>
-      </HStack>
-      <HStack flexWrap="wrap">
+        </Col>
+        <FloorPriceColumn
+          className="d-flex justify-content-end align-content-center"
+          sm={13}
+          xs={13}
+          md={6}
+        >
+          <FloorPriceTag />
+        </FloorPriceColumn>
+      </RowHeader>
+      <Row>
         <Filter />
         <List />
-      </HStack>
-    </VStack>
+      </Row>
+    </Container>
   );
 }
 

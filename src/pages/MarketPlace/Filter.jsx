@@ -1,6 +1,7 @@
 import React from "react";
-import { VStack, Slider, Checkbox, HStack } from "native-base";
+import { Slider, Checkbox } from "native-base";
 import styled from "styled-components";
+import { Stack } from "react-bootstrap";
 import Card from "../../components/Card";
 
 const FilterTitle = styled.div`
@@ -13,8 +14,8 @@ function Filter() {
     "Gardening",
   ]);
   return (
-    <Card p={10} w={{ lg: "1/4", md: "100%" }}>
-      <VStack space={2} alignItems="start">
+    <Card xs={13} sm={13} md={4} lg={4} xl={4} className="">
+      <Stack>
         <FilterTitle style={{ fontSize: "28px" }}>Filters</FilterTitle>
         <Checkbox.Group
           colorScheme="green"
@@ -63,7 +64,7 @@ function Filter() {
           </Slider.Track>
           <Slider.Thumb />
         </Slider>
-      </VStack>
+      </Stack>
     </Card>
   );
 }

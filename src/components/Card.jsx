@@ -1,21 +1,15 @@
-import { Box } from "native-base";
+import { Col } from "react-bootstrap";
+import styled from "styled-components";
 
-function Card({ children, ...restProps }) {
-  return (
-    <Box {...restProps}>
-      <Box
-        w="100%"
-        bg="rgba(28, 25, 23, 0.2)"
-        borderRadius={5}
-        p={10}
-        pt={5}
-        // borderColor="rgba(28, 25, 23, 0.2)"
-        // borderWidth="4px"
-      >
-        {children}
-      </Box>
-    </Box>
-  );
-}
+const Card = styled(Col)`
+  width: 100%;
+  display: flex;
+  background-color: rgba(28, 25, 23, 0.2);
+  border-radius: 5px;
+  padding: 2rem;
+  padding-top: 1rem;
+  margin: 2rem 0 1rem 0;
+  text-align: start;
+`;
 
 export default Card;

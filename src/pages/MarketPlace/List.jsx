@@ -1,9 +1,10 @@
 import React from "react";
-import { HStack, Text, VStack, Select, CheckIcon, Image } from "native-base";
+import { HStack, Text, Select, CheckIcon, Image } from "native-base";
 import styled from "styled-components";
 import Card from "../../components/Card";
 import arrowleft from "../../assets/arrow-left.png";
 import arrowright from "../../assets/arrow-right.png";
+import { Col, Row } from "react-bootstrap";
 
 const CardTitle = styled(Text)`
   font-size: 22px;
@@ -26,17 +27,18 @@ const listData = [{ name: "Item 1" }, { name: "Item 2" }, { name: "Item 3" }];
 
 function List() {
   return (
-    <VStack
-      w={{ lg: "3/4", md: "100%" }}
-      alignItems={{ lg: "start", md: "center" }}
-      pl={{ md: 10 }}
-      mt={35}
+    <Col
+      // w={{ lg: "3/4", md: "100%" }}
+      // alignItems={{ lg: "start", md: "center" }}
+      // pl={{ md: 10 }}
+      // mt={35}
+      className="d-flex align-items-start"
     >
-      <HStack
-        w="100%"
-        pr={10}
-        justifyContent="space-between"
-        alignItems="center"
+      <Row
+      // w="100%"
+      // pr={10}
+      // justifyContent="space-between"
+      // alignItems="center"
       >
         <Quantity>{listData.length} Heroes</Quantity>
         <Select
@@ -53,9 +55,9 @@ function List() {
           <Select.Item label="Price: Low to High" value="web" />
           <Select.Item label="Price: High to Low" value="cross" />
         </Select>
-      </HStack>
+      </Row>
 
-      <HStack w="100%" flexWrap="wrap" alignItems={{ md: "center" }}>
+      <Row w="100%" flexWrap="wrap" alignItems={{ md: "center" }}>
         {listData.map((item, index) => (
           <Card
             w={{ sm: "100%", xs: "100%", md: "100%", lg: "1/3" }}
@@ -75,8 +77,8 @@ function List() {
             <CardTitle>{item.name}</CardTitle>
           </Card>
         ))}
-      </HStack>
-      <HStack
+      </Row>
+      <Row
         alignContent="center"
         justifyContent="center"
         width="100%"
@@ -84,8 +86,8 @@ function List() {
       >
         <Image src={arrowleft} width="40px" height="40px" mr={5} />
         <Image src={arrowright} width="40px" height="40px" />
-      </HStack>
-    </VStack>
+      </Row>
+    </Col>
   );
 }
 

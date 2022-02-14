@@ -3,6 +3,7 @@ import Filter from "./Filter";
 import List from "./List";
 import { breakpoints } from "../../styledHelpers";
 import { Container, Row, Col, Stack } from "react-bootstrap";
+import Card from "../../components/Card";
 
 const MediumButton = styled.button`
   font-size: 20px;
@@ -36,6 +37,10 @@ const FloorPriceColumn = styled(Col)`
   @media (max-width: ${breakpoints.sm}) {
     margin-bottom: 25px;
   }
+`;
+
+const ListCol = styled(Col)`
+  margin: 2rem 0 1rem 0;
 `;
 
 function FloorPriceTag() {
@@ -84,9 +89,16 @@ function MarketPlace() {
           <FloorPriceTag />
         </FloorPriceColumn>
       </RowHeader>
-      <Row>
-        <Filter />
-        <List />
+      <Row className="gx-4">
+        <Col xs={13} sm={13} md={4} lg={4} xl={4}>
+          <Card>
+            <Filter />
+          </Card>
+        </Col>
+
+        <ListCol xs={13} sm={13} md={8} lg={8} xl={8}>
+          <List />
+        </ListCol>
       </Row>
     </Container>
   );

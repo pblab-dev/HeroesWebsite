@@ -9,6 +9,7 @@ import reportWebVitals from "./reportWebVitals";
 import PlayNow from "./pages/PlayNow";
 import HomePage from "./pages/HomePage";
 import MarketPlace from "./pages/MarketPlace/MarketPlace";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const theme = extendTheme({
   fontConfig: {
@@ -55,19 +56,23 @@ const theme = extendTheme({
   },
 });
 
+const queryClient = new QueryClient();
+
 ReactDOM.render(
   <React.StrictMode>
-    <NativeBaseProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="marketplace" element={<MarketPlace />} />
-          </Route>
-          <Route path="play-now" element={<PlayNow />} />
-        </Routes>
-      </BrowserRouter>
-    </NativeBaseProvider>
+    <QueryClientProvider client={queryClient}>
+      <NativeBaseProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="marketplace" element={<MarketPlace />} />
+            </Route>
+            <Route path="play-now" element={<PlayNow />} />
+          </Routes>
+        </BrowserRouter>
+      </NativeBaseProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

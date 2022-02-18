@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { connectWallet } from "../web3";
+import { connectWallet } from "..//web3/web3";
 import { useEffect } from "react";
 
 const BlackBackground = styled.div`
@@ -18,14 +17,22 @@ const BlackBackground = styled.div`
 `;
 
 function PlayNow() {
-  useEffect(async () => {
-    const walletConnected = await connectWallet();
-    console.log(walletConnected);
+  useEffect(() => {
+    const connectWalletEffect = async () => {
+      const walletConnected = await connectWallet();
+      console.log(walletConnected);
+    };
+    connectWalletEffect();
   }, []);
 
   return (
     <BlackBackground>
-      <iframe src="https://wcheroes.io/game" height={900} width={"100%"} />
+      <iframe
+        title="Play Now"
+        src="https://wcheroes.io/game"
+        height={900}
+        width={"100%"}
+      />
       {/* <h1>Play Now</h1>
       <Link to="/" class="pixel-borders pixel-box--primary">
         Go Back!

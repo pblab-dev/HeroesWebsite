@@ -3,6 +3,10 @@ import Filter from "./Filter";
 import List from "./List";
 import { breakpoints } from "../../styledHelpers";
 import { Container, Row, Col, Stack } from "react-bootstrap";
+import Card from "../../components/Card";
+import { useQuery } from "react-query";
+import { getMarketplaceItens } from "../../web3/web3";
+import Loading from "./Loading";
 
 const MediumButton = styled.button`
   font-size: 20px;
@@ -38,6 +42,10 @@ const FloorPriceColumn = styled(Col)`
   }
 `;
 
+const ListCol = styled(Col)`
+  margin: 2rem 0 1rem 0;
+`;
+
 function FloorPriceTag() {
   return (
     <>
@@ -61,6 +69,12 @@ function FloorPriceTag() {
 }
 
 function MarketPlace() {
+  const { data, error, isLoading } = useQuery("getItems", getMarketplaceItens);
+  if (isLoading) return <Loading />;
+  if (error) return null;
+
+  console.log(data);
+
   return (
     <Container>
       <RowHeader>
@@ -84,9 +98,16 @@ function MarketPlace() {
           <FloorPriceTag />
         </FloorPriceColumn>
       </RowHeader>
-      <Row>
-        <Filter />
-        <List />
+      <Row className="gx-4">
+        <Col xs={13} sm={13} md={4} lg={4} xl={4}>
+          <Card>
+            <Filter />
+          </Card>
+        </Col>
+
+        <ListCol xs={13} sm={13} md={8} lg={8} xl={8}>
+          <List data={data.data.nftInfo} />
+        </ListCol>
       </Row>
     </Container>
   );

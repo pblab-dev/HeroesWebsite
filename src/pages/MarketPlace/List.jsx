@@ -1,12 +1,12 @@
 import React from "react";
-import { HStack, Text, Select, CheckIcon, Image } from "native-base";
+import { Text, Select, CheckIcon, Image } from "native-base";
 import styled from "styled-components";
 import Card from "../../components/Card";
 import arrowleft from "../../assets/arrow-left.png";
 import arrowright from "../../assets/arrow-right.png";
 import { Col, Row } from "react-bootstrap";
 
-const CardTitle = styled(Text)`
+const CardTitle = styled.h1`
   font-size: 22px;
 `;
 
@@ -14,80 +14,65 @@ const Quantity = styled(Text)`
   font-size: 24px;
 `;
 
-// const Arrow = styled(Box)`
-//   transition: width linear 0.4s;
-//   width: 40px;
-//   height: 40px;
-//   &:hover {
-//     width: 45px;
-//     height: 45px;
-//   }
-// `;
+const Habilities = styled.div`
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 18px;
+`;
+
+const Hability = styled.div`
+  color: aquamarine;
+`;
+
+const Price = styled.div`
+  font-size: 24px;
+  color: #ffc000;
+`;
+
 const listData = [{ name: "Item 1" }, { name: "Item 2" }, { name: "Item 3" }];
 
-function List() {
+function List({ data }) {
   return (
-    <Col
-      // w={{ lg: "3/4", md: "100%" }}
-      // alignItems={{ lg: "start", md: "center" }}
-      // pl={{ md: 10 }}
-      // mt={35}
-      className="d-flex align-items-start"
-    >
-      <Row
-      // w="100%"
-      // pr={10}
-      // justifyContent="space-between"
-      // alignItems="center"
-      >
-        <Quantity>{listData.length} Heroes</Quantity>
-        <Select
-          minWidth="200"
-          accessibilityLabel="Choose Service"
-          placeholder="Latest"
-          _selectedItem={{
-            bg: "teal.600",
-            endIcon: <CheckIcon size={5} />,
-          }}
-          mt="1"
-        >
-          <Select.Item label="Latest" value="ux" />
-          <Select.Item label="Price: Low to High" value="web" />
-          <Select.Item label="Price: High to Low" value="cross" />
-        </Select>
+    <>
+      <Row>
+        <Col className="d-flex align-items-center justify-content-between">
+          <Quantity>{listData.length} Heroes</Quantity>
+          <Select
+            minWidth="200"
+            accessibilityLabel="Choose Service"
+            placeholder="Latest"
+            _selectedItem={{
+              bg: "teal.600",
+              endIcon: <CheckIcon size={5} />,
+            }}
+            mt="1"
+          >
+            <Select.Item label="Latest" value="ux" />
+            <Select.Item label="Price: Low to High" value="web" />
+            <Select.Item label="Price: High to Low" value="cross" />
+          </Select>
+        </Col>
       </Row>
 
-      <Row w="100%" flexWrap="wrap" alignItems={{ md: "center" }}>
-        {listData.map((item, index) => (
-          <Card
-            w={{ sm: "100%", xs: "100%", md: "100%", lg: "1/3" }}
-            pl={{ lg: 5, md: 0, sm: 0, xs: 0 }}
-            pr={{ lg: 5, xs: 10 }}
-            py={5}
-            {...(index === 0 && {
-              pl: { lg: 0, sm: 0, md: 0, xs: 0 },
-              pr: { sm: 10, md: 10, xs: 10 },
-            })}
-            {...(listData.length - 1 === index && {
-              pr: { lg: 10, sm: 10, md: 10 },
-              pl: { lg: 10, sm: 0, md: 0 },
-            })}
-            key={`card-${index}`}
-          >
-            <CardTitle>{item.name}</CardTitle>
-          </Card>
+      <Row className="gx-3">
+        {data.map((item, index) => (
+          <Col key={`card-${index}`} sm={12} xs={12} md={4} lg={4}>
+            <Card>
+              <CardTitle>Hero {item.itemId}</CardTitle>
+              <Habilities>
+                <Hability>Habilidade 1:</Hability>
+              </Habilities>
+              <Price>$ {item.price}</Price>
+            </Card>
+          </Col>
         ))}
       </Row>
-      <Row
-        alignContent="center"
-        justifyContent="center"
-        width="100%"
-        marginTop={10}
-      >
+      <Row className="d-flex justify-content-center d-flex">
         <Image src={arrowleft} width="40px" height="40px" mr={5} />
         <Image src={arrowright} width="40px" height="40px" />
       </Row>
-    </Col>
+    </>
   );
 }
 

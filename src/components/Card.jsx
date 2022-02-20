@@ -2,8 +2,6 @@ import { Col } from "react-bootstrap";
 import styled from "styled-components";
 
 const Card = styled(Col)`
-  width: 100%;
-  display: flex;
   background-color: rgba(28, 25, 23, 0.2);
   border-radius: 5px;
   padding: 2rem;

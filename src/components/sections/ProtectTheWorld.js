@@ -26,7 +26,7 @@ const ProtectTheWorld = () => {
         <img src={coin} alt="coin" style={{ width: 99 }} className="coin5" />
       </p>
       <p style={{ marginTop: 100 }}>
-        <Link to="play-now" class="pixel-borders pixel-box--primary">
+        <Link to="play-now" className="pixel-borders pixel-box--primary">
           Play Now!
         </Link>
       </p>

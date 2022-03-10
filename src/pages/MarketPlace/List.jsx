@@ -5,6 +5,9 @@ import Card from "../../components/Card";
 import arrowleft from "../../assets/arrow-left.png";
 import arrowright from "../../assets/arrow-right.png";
 import { Col, Row } from "react-bootstrap";
+import { useQuery } from "react-query";
+import Loading from "./Loading";
+import { getCharacter } from "./requests";
 
 const CardTitle = styled.h1`
   font-size: 22px;
@@ -30,14 +33,33 @@ const Price = styled.div`
   color: #ffc000;
 `;
 
-const listData = [{ name: "Item 1" }, { name: "Item 2" }, { name: "Item 3" }];
+function NftItem(item) {
+  console.log("ITEM", item);
+  const { data, error, isLoading } = useQuery(
+    ["getCharacter", item.item.nftInfo],
+    () => getCharacter(item.item.nftInfo)
+  );
+  if (isLoading) return <Loading />;
+  if (error) return null;
 
-function List({ data }) {
+  console.log(data);
+  return (
+    <Card>
+      <CardTitle>Hero {item.itemId}</CardTitle>
+      <Habilities>
+        <Hability>Habilidade 1:</Hability>
+      </Habilities>
+      <Price>$ {item.price}</Price>
+    </Card>
+  );
+}
+
+function List({ nftInfo }) {
   return (
     <>
       <Row>
         <Col className="d-flex align-items-center justify-content-between">
-          <Quantity>{listData.length} Heroes</Quantity>
+          <Quantity>{nftInfo.length} Heroes</Quantity>
           <Select
             minWidth="200"
             accessibilityLabel="Choose Service"
@@ -56,15 +78,9 @@ function List({ data }) {
       </Row>
 
       <Row className="gx-3">
-        {data.map((item, index) => (
+        {nftInfo.map((item, index) => (
           <Col key={`card-${index}`} sm={12} xs={12} md={4} lg={4}>
-            <Card>
-              <CardTitle>Hero {item.itemId}</CardTitle>
-              <Habilities>
-                <Hability>Habilidade 1:</Hability>
-              </Habilities>
-              <Price>$ {item.price}</Price>
-            </Card>
+            <NftItem item={item} />
           </Col>
         ))}
       </Row>

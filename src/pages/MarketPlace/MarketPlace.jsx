@@ -5,7 +5,7 @@ import { breakpoints } from "../../styledHelpers";
 import { Container, Row, Col, Stack } from "react-bootstrap";
 import Card from "../../components/Card";
 import { useQuery } from "react-query";
-import { getMarketplaceItens } from "../../web3/web3";
+import { getMarketplaceItens } from "./requests";
 import Loading from "./Loading";
 
 const MediumButton = styled.button`
@@ -73,7 +73,7 @@ function MarketPlace() {
   if (isLoading) return <Loading />;
   if (error) return null;
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <Container>
@@ -106,7 +106,7 @@ function MarketPlace() {
         </Col>
 
         <ListCol xs={13} sm={13} md={8} lg={8} xl={8}>
-          <List data={data.data.nftInfo} />
+          <List nftInfo={data.data.nftInfo} />
         </ListCol>
       </Row>
     </Container>

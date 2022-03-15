@@ -5,9 +5,7 @@ import Card from "../../components/Card";
 import arrowleft from "../../assets/arrow-left.png";
 import arrowright from "../../assets/arrow-right.png";
 import { Col, Row } from "react-bootstrap";
-import { useQuery } from "react-query";
-import Loading from "./Loading";
-import { getCharacter } from "./requests";
+import { baseURL } from "./requests";
 
 const CardTitle = styled.h1`
   font-size: 22px;
@@ -33,19 +31,27 @@ const Price = styled.div`
   color: #ffc000;
 `;
 
-function NftItem(item) {
-  console.log("ITEM", item);
-  const { data, error, isLoading } = useQuery(
-    ["getCharacter", item.item.nftInfo],
-    () => getCharacter(item.item.nftInfo)
-  );
-  if (isLoading) return <Loading />;
-  if (error) return null;
-
-  console.log(data);
+function NftItem({ item }) {
   return (
     <Card>
       <CardTitle>Hero {item.itemId}</CardTitle>
+      <div style={{ width: "100%", height: "120px" }}>
+        <iframe
+          title="NFT"
+          src={`${baseURL}avatar/preview?skin=${
+            item.nftInfo.skin === "0" ? "1" : item.nftInfo.skin
+          }&hairstyle=${item.nftInfo.hairStyle}&haircolor=${
+            item.nftInfo.hairColor
+          }&face=${item.nftInfo.face}&facecolor=${
+            item.nftInfo.faceColor
+          }&helmet=${item.nftInfo.helmet}&cloth=${item.cloth}&armor=${
+            item.nftInfo.armor
+          }&back=${item.back}&weapon=${item.nftInfo.weapon}&shield=${
+            item.nftInfo.shield
+          }`}
+        />
+      </div>
+
       <Habilities>
         <Hability>Habilidade 1:</Hability>
       </Habilities>
